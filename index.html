@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --body-bg: #f2f2f2;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            color: var(--text-color);
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            border: none;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .card img.profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: var(--secondary-color);
+        }
+
+        .list-group-item {
+            background-color: transparent;
+            border: none;
+        }
+
+        .list-group-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .list-group-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            padding: 40px 0;
+        }
+
+        .personal-details-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .social-media-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+
+        .github-icon {
+            color: #333;
+        }
+
+        .linkedin-icon {
+            color: #0077b5;
+        }
+
+        .twitter-icon {
+            color: #1da1f2;
+        }
+
+        .instagram-icon {
+            color: #e4405f;
+        }
+
+        #exp ul.list-group {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #exp ul.list-group li.list-group-item::before {
+            content: "\2022";
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+        }
+
+        .toggle-btn {
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: var(--primary-color);
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-btn i {
+            position: absolute;
+            top: 3px;
+            left: 8px;
+            font-size: 18px;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        input[type="checkbox"]:checked+.toggle-btn i.fa-sun {
+            opacity: 1;
+        }
+
+        input[type="checkbox"]:not(:checked)+.toggle-btn i.fa-moon {
+            opacity: 1;
+        }
+
+        .toggle-btn .circle {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        input[type="checkbox"] {
+            visibility: hidden;
+        }
+
+        input[type="checkbox"]:checked+.toggle-btn .circle {
+            transform: translateX(30px);
+        }
+
+        .dark-theme .toggle-btn {
+            background-color: var(--secondary-color);
+        }
+
+        .dark-theme {
+            --primary-color: #17a2b8;
+            --secondary-color: #6c757d;
+            --body-bg: #333333;
+            --card-bg: #444444;
+            --text-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="profile-image-container">
+                        <img src="Profile Image.jpg" class="card-img-top profile-img" alt="Profile Image">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="personal-details-title">Personal Details</h5>
+                        <p class="card-text">
+                            Name: Abhay Patel<br>
+                            Title: Data Enthusiast<br>
+                            Location: Ahmedabad, Gujarat<br>
+                            Email: patelabhay1552@gmail.com<br>
+                            Phone: +91 7007267441
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8" id="exp">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Experience</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>RankBit (July'23 - Present)</strong>&nbsp;:&nbsp;Intern in Machine Learning<br>
+                                "Currently involved in diverse machine learning projects, collaborating with experts to
+                                develop innovative solutions, and gaining hands-on experience in AI and data
+                                science."<br>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>SSIP Hackathon(February'23)</strong>&nbsp;:&nbsp;Final Round Participant<br>
+                                "Competed in SSIP Hackathon finals, creating an innovative solution in collaboration
+                                with
+                                teammates and mentors."<br>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Technical Community</strong>&nbsp;:&nbsp;Co-Founder(CampusTechies) and Active
+                                Member<br>
+                                "Empowering the tech community through active engagement, knowledge sharing, and
+                                fostering meaningful connections for continuous learning and growth."<br>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Viral Fisson (March'23 - Present)</strong>&nbsp;:&nbsp;Brand Promotion
+                                Intern<br>
+                                "It is a youth community platform that bridges the gap between India's most
+                                capable youth and the brands they love, through engagements and experiences."<br>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Skills</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Programming Languages: Python, JavaScript, Java</li>
+                            <li class="list-group-item">Web Technologies: HTML, CSS, Angular.js</li>
+                            <li class="list-group-item">Database: MySQL, MongoDB</li>
+                            <li class="list-group-item">Version Control: Git</li>
+                            <li class="list-group-item">Frameworks: Flask, Django</li>
+                            <li class="list-group-item">Other Skills: Problem-solving, Teamwork, Agile Development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="social-media-title">Social Media Handles</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="https://github.com/your-github-handle" target="_blank">
+                                    <i class="fab fa-github social-icon github-icon"></i>GitHub
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">
+                                    <i class="fab fa-linkedin social-icon linkedin-icon"></i>LinkedIn
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="https://twitter.com/your-twitter-handle" target="_blank">
+                                    <i class="fab fa-twitter social-icon twitter-icon"></i>Twitter
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="https://instagram.com/your-instagram-handle" target="_blank">
+                                    <i class="fab fa-instagram social-icon instagram-icon"></i>Instagram
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-toggle-btn" onclick="toggleTheme()">
+        <label for="theme-toggle-btn" class="toggle-btn">
+            <i class="fas fa-sun" style="left: 4px; font-size: 25px;"></i>
+            <i class="fas fa-moon" style="left: 33px; font-size: 25px;"></i>
+            <span class="circle"></span>
+        </label>
+    </div>
+
+    <script src="https://kit.fontawesome.com/f664a0acbf.js" crossorigin="anonymous"></script>
+    <script>
+        function toggleTheme() {
+            const body = document.querySelector('body');
+            body.classList.toggle('dark-theme');
+
+            const isDarkTheme = body.classList.contains('dark-theme');
+            localStorage.setItem('darkTheme', isDarkTheme);
+        }
+
+        const darkTheme = localStorage.getItem('darkTheme');
+        if (darkTheme === 'true') {
+            const body = document.querySelector('body');
+            body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+
+</html>
